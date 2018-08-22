@@ -10,13 +10,21 @@ import HA_Util.HA_BaseClass;
 
 public class LandingPage extends HA_BaseClass	 {
 	
-		public HeartAgePage startButtonClick() throws InterruptedException {
+	@FindBy (id="start")
+	WebElement clickStart;
+	
+	public LandingPage() {
+		PageFactory.initElements(driver, this);
+	}
+	
+		public FillFormSectionOnePage startButtonClick() throws InterruptedException {
 			int frameSize= driver.findElements(By.tagName("iframe")).size();
 			for(int i=0;i<frameSize;i++) {
 				driver.switchTo().frame(i);
-				driver.findElement(By.id("start")).click();
+				Thread.sleep(2000);
+				clickStart.click();
 			}						
-			return new HeartAgePage();
+			return new FillFormSectionOnePage();
 		}
 }
 
