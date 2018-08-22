@@ -1,5 +1,6 @@
 package HA_Pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,32 +41,34 @@ public class FillFormSectionThreePage extends HA_BaseClass {
 	public FillFormSectionFourPage fillFormSectionThree(String diabetes, String arthritis, String kidney,
 			String atrial) {
 
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
 		// *** Diabetes Selection ***
 		if (diabetes.equalsIgnoreCase("n")) {
-			diabetesNoSelect.click();
+			js.executeScript("arguments[0].click();", diabetesNoSelect);
 		} else if (diabetes.equalsIgnoreCase("y")) {
-			diabetesYesSelect.click();
+			js.executeScript("arguments[0].click();", diabetesYesSelect);
 		}
 
 		// *** Arthritis Selection ***
-		if (arthritis.equalsIgnoreCase("n")) {
-			arthritisNoSelect.click();
+		if (arthritis.equalsIgnoreCase("n")) {			
+			js.executeScript("arguments[0].click();", arthritisNoSelect);
 		} else if (arthritis.equalsIgnoreCase("y")) {
-			arthritisYesSelect.click();
+			js.executeScript("arguments[0].click();", arthritisYesSelect);
 		}
 
 		// *** Kidney Selection ***
 		if (kidney.equalsIgnoreCase("n")) {
-			kidneyNoSelect.click();
+			js.executeScript("arguments[0].click();", kidneyNoSelect);
 		} else if (kidney.equalsIgnoreCase("y")) {
-			kidneyYesSelect.click();
+			js.executeScript("arguments[0].click();", kidneyYesSelect);
 		}
 
 		// *** Atrial Fibrillation Selection ***
 		if (atrial.equalsIgnoreCase("n")) {
-			atrialNoSelect.click();
+			js.executeScript("arguments[0].click();", atrialNoSelect);
 		} else if (atrial.equalsIgnoreCase("y")) {
-			atrialYesSelect.click();
+			js.executeScript("arguments[0].click();", atrialYesSelect);
 		}
 		
 		return new FillFormSectionFourPage();

@@ -1,5 +1,6 @@
 package HA_Pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,39 +41,43 @@ public class FillFormSectionFourPage extends HA_BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	public ResultPage fillFormSectionFour(String relative_cardio, String cholesterol, String bp, String bp_treatment) {
+	public ResultLinkPage fillFormSectionFour(String relative_cardio, String cholesterol, String bp, String bp_treatment) throws InterruptedException {
 
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		
 		// *** Relative_Cardio Selection ***
 		if (relative_cardio.equalsIgnoreCase("n")) {
-			rel_cardioNoSelect.click();
+			js.executeScript("arguments[0].click();", rel_cardioNoSelect);
 		} else if (relative_cardio.equalsIgnoreCase("y")) {
-			rel_cardioYesSelect.click();
+			js.executeScript("arguments[0].click();", rel_cardioYesSelect);
 		}
 
 		// *** Cholesterol Selection ***
 		if (cholesterol.equalsIgnoreCase("n")) {
-			cholesterolNoSelect.click();
+			js.executeScript("arguments[0].click();", cholesterolNoSelect);
 		} else if (cholesterol.equalsIgnoreCase("y")) {
-			cholesterolYesSelect.click();
+			js.executeScript("arguments[0].click();", cholesterolYesSelect);
 		}
 
 		// *** BP Selection ***
 		if (bp.equalsIgnoreCase("n")) {
-			bpNoSelect.click();
+			js.executeScript("arguments[0].click();", bpNoSelect);
 		} else if (bp.equalsIgnoreCase("y")) {
-			bpYesSelect.click();
+			js.executeScript("arguments[0].click();", bpYesSelect);
 		}
 
 		// *** BP Treatment Selection ***
 		if (bp.equalsIgnoreCase("n")) {
-			bptNoSelect.click();
+			js.executeScript("arguments[0].click();", bptNoSelect);
 		} else if (bp.equalsIgnoreCase("y")) {
-			bptYesSelect.click();
+			js.executeScript("arguments[0].click();", bptYesSelect);
 		}
 		
 		// *** Get Result Click ***
-		getResultClick.click();
+		//getResultClick.click();
+		Thread.sleep(2000);
+		js.executeScript("arguments[0].click();", getResultClick);
 		
-		return new ResultPage();
+		return new ResultLinkPage();
 	}
 }
