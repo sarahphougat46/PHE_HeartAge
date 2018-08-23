@@ -17,9 +17,4 @@ public class ResultLinkPageSteps extends HA_BaseClass {
 		resultPageObject= resultLinkPageObject.resultPageTest();
 		
 	}
-
-	@Then("^either click on StartAgain or back$")
-	public void either_click_on_StartAgain_or_back() throws Throwable {
-	   
-	}
 }

@@ -17,14 +17,14 @@ public class LandingPage extends HA_BaseClass	 {
 		PageFactory.initElements(driver, this);
 	}
 	
-		public FillFormSectionOnePage startButtonClick() throws InterruptedException {
+		public FillFormPage startButtonClick() throws InterruptedException {
 			int frameSize= driver.findElements(By.tagName("iframe")).size();
 			for(int i=0;i<frameSize;i++) {
 				driver.switchTo().frame(i);
 				Thread.sleep(2000);
 				clickStart.click();
 			}						
-			return new FillFormSectionOnePage();
+			return new FillFormPage();
 		}
 }
 

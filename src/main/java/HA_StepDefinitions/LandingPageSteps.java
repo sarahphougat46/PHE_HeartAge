@@ -1,7 +1,7 @@
 package HA_StepDefinitions;
 
 
-import HA_Pages.FillFormSectionOnePage;
+import HA_Pages.FillFormPage;
 import HA_Pages.LandingPage;
 import HA_Util.HA_BaseClass;
 import cucumber.api.java.en.Given;
@@ -10,7 +10,7 @@ import cucumber.api.java.en.Then;
 public class LandingPageSteps extends HA_BaseClass {
 
 	LandingPage landingPageObject;	
-	FillFormSectionOnePage heatAgePageObject; 	
+	FillFormPage heatAgePageObject; 	
 	
 	@Given("^I land on heart age test page$")
 	public void i_land_on_heart_age_test_page() throws Throwable {
