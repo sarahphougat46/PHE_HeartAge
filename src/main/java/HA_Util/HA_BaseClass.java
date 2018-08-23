@@ -13,36 +13,45 @@ public class HA_BaseClass {
 
 	public static WebDriver driver;
 	public static Properties prop;
-	
+
 	public HA_BaseClass() {
-		
+
 		try {
-		prop= new Properties();
-		FileInputStream file = new FileInputStream("C:\\Automation\\BDD_PHE_HeartAge\\src\\main\\java\\HA_Config\\config.properties");
-		prop.load(file);
-		}catch(FileNotFoundException e) {
+			prop = new Properties();
+			FileInputStream file = new FileInputStream(
+					"C:\\Automation\\BDD_PHE_HeartAge\\src\\main\\java\\HA_Config\\config.properties");
+			prop.load(file);
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}catch(IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
-	public static void initialization() {		
+
+	public static void initialization() {
 		String browserName = prop.getProperty("browser");
-		if(browserName.equals("chrome")) {
+		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "C:\\Automation\\drivers\\chromedriver.exe");
-			driver= new ChromeDriver();		
-		}else if(browserName.equals("firefox")) {
+			driver = new ChromeDriver();
+		} else if (browserName.equals("firefox")) {
 			System.setProperty("", "");
-			
-		}	
+
+		}
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Utilities.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(Utilities.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("url"));		
+		driver.get(prop.getProperty("url"));
 	}
 
-}	
-	
+	public String getReportConfigPath() {
+		String reportConfigPath = prop.getProperty("reportConfigPath");
+		if (reportConfigPath != null)
+			return reportConfigPath;
+		else
+			throw new RuntimeException(
+					"Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");
+	}
+
+}

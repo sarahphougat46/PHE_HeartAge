@@ -1,17 +1,11 @@
 package HA_StepDefinitions;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
 import HA_Pages.FillFormPage;
 import HA_Pages.LandingPage;
 import HA_Pages.ResultPage;
 import HA_Pages.TCAndFillFormLinkPage;
 import HA_Util.HA_BaseClass;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 
 public class TCAndFillFormLinkPageSteps extends HA_BaseClass {
 
@@ -32,6 +26,7 @@ public class TCAndFillFormLinkPageSteps extends HA_BaseClass {
 		fillFormPageObject = landingPageObject.startButtonClick();
 		termsAndConditionsPageObject= new TCAndFillFormLinkPage();
 		resultPageObject= termsAndConditionsPageObject.form_LinkClick();
+		driver.quit();
 	}	
 
 }
