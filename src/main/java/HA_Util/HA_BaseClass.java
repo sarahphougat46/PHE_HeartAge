@@ -1,4 +1,4 @@
-package HA_Util;
+	package HA_Util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -26,7 +26,6 @@ public class HA_BaseClass {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void initialization() {
